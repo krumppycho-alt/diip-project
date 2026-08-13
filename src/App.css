@@ -10,12 +10,10 @@
 .canvas-area {
   grid-column: 1;
   grid-row: 1;
+  position: relative;
+  overflow: hidden;
   background: var(--color-surface);
   touch-action: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-dim);
 }
 
 .side-panel {
@@ -24,6 +22,90 @@
   width: 48px;
   background: var(--color-surface-alt);
   border-left: 1px solid var(--color-border);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: width 0.15s ease;
+  overflow: hidden;
+}
+
+.side-panel--expanded {
+  width: 220px;
+  align-items: stretch;
+}
+
+.panel-add-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.panel-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.panel-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text);
+  font-size: 14px;
+}
+
+.panel-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.role-toggle {
+  gap: 0;
+}
+
+.role-toggle button {
+  flex: 1;
+  padding: 6px 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-dim);
+  cursor: pointer;
+}
+
+.role-toggle button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.role-toggle button:last-child {
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+}
+
+.role-toggle button.active {
+  background: var(--color-accent);
+  color: #121212;
+  border-color: var(--color-accent);
+}
+
+.panel-delete-btn {
+  padding: 8px 0;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-dim);
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .track-bar {
