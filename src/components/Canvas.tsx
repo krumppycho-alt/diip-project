@@ -56,6 +56,7 @@ export function Canvas() {
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
+    setSize({ width: el.clientWidth, height: el.clientHeight });
     const observer = new ResizeObserver((entries) => {
       const { width, height } = entries[0].contentRect;
       setSize({ width, height });
