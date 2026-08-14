@@ -33,7 +33,11 @@ export function Dot({
   );
 
   const handlePointerDown = (e: ReactPointerEvent<SVGCircleElement>) => {
-    e.currentTarget.setPointerCapture(e.pointerId);
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      // ignore: pointer capture is best-effort
+    }
     dragState.current = { startX: e.clientX, startY: e.clientY, dragging: false };
   };
 

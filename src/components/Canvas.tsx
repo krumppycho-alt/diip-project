@@ -95,7 +95,11 @@ export function Canvas() {
     if (isDotTarget(e.target)) return;
     if (bgPointers.current.size >= 2) return;
 
-    e.currentTarget.setPointerCapture(e.pointerId);
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      // ignore: pointer capture is best-effort
+    }
     bgPointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
     if (bgPointers.current.size === 1) {
